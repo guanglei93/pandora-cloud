@@ -1,0 +1,5 @@
+net.ittimeline.pandora.framework.security.config.PandoraSecurityAutoConfiguration
+net.ittimeline.pandora.framework.security.config.PandoraSecurityRpcAutoConfiguration
+net.ittimeline.pandora.framework.security.config.PandoraWebSecurityAutoConfiguration
+net.ittimeline.pandora.framework.operatelog.config.PandoraOperateLogConfiguration
+net.ittimeline.pandora.framework.operatelog.config.PandoraOperateLogRpcAutoConfiguration

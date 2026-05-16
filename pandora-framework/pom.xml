@@ -28,6 +28,7 @@
         <module>pandora-spring-boot-starter-redis</module>
         <module>pandora-spring-boot-starter-rpc</module>
         <module>pandora-spring-boot-starter-web</module>
+        <module>pandora-spring-boot-starter-security</module>
     </modules>
 
 

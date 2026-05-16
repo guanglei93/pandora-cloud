@@ -121,10 +121,23 @@
 
             <dependency>
                 <groupId>net.ittimeline</groupId>
+                <artifactId>pandora-spring-boot-starter-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.ittimeline</groupId>
                 <artifactId>pandora-spring-boot-starter-rpc</artifactId>
                 <version>${revision}</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>net.ittimeline</groupId>
+                <artifactId>pandora-spring-boot-starter-security</artifactId>
+                <version>${revision}</version>
+
+            </dependency>
 
             <!-- ==================== 微服务框架 BOM（import 顺序很重要，先 Spring Boot，再 Cloud） ==================== -->
             <dependency>

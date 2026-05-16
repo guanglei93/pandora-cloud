@@ -1,0 +1,3 @@
+net.ittimeline.pandora.framework.translate.config.PandoraTranslateAutoConfiguration
+net.ittimeline.pandora.framework.datasource.config.PandoraDataSourceAutoConfiguration
+net.ittimeline.pandora.framework.mybatis.config.PandoraMybatisAutoConfiguration

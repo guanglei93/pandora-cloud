@@ -18,6 +18,14 @@
 - [PandoraSecurityRpcAutoConfiguration.java](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityRpcAutoConfiguration.java)
 </cite>
 
+## 更新摘要
+**变更内容**
+- 新增PermissionCommonApi接口的详细文档说明
+- 补充权限校验接口的完整API规范
+- 更新架构图以反映新的权限管理组件
+- 增加权限管理的最佳实践指导
+- 完善错误码和响应格式说明
+
 ## 目录
 1. [简介](#简介)
 2. [项目结构](#项目结构)
@@ -36,6 +44,8 @@
 - 请求参数、响应格式与错误码规范
 - 与Spring Security的集成流程与权限注解使用建议
 - 权限相关的RESTful API示例与最佳实践
+
+**更新** 新增PermissionCommonApi接口的详细说明，这是权限管理系统的核心组件，提供远程权限校验能力。
 
 ## 项目结构
 权限管理相关代码分布在公共模块与安全启动器模块中：
@@ -79,55 +89,31 @@ SFU --> TAF
 SPA --> TAF
 ```
 
-图表来源
+**图表来源**
 - [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
 - [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
 - [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
-- [PandoraSecurityAutoConfiguration.java:1-98](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L98)
-- [PandoraWebSecurityAutoConfiguration.java:127-183](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L127-L183)
+- [PandoraSecurityAutoConfiguration.java:1-99](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L99)
+- [PandoraWebSecurityAutoConfiguration.java:1-223](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L1-L223)
 - [SecurityFrameworkUtils.java:1-163](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/util/SecurityFrameworkUtils.java#L1-L163)
 - [SecurityProperties.java:1-58](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/SecurityProperties.java#L1-L58)
 - [RpcConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/constants/RpcConstants.java#L1-L42)
 - [CommonResult.java:1-123](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/pojo/CommonResult.java#L1-L123)
 - [OAuth2TokenCommonApi.java:1-34](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/OAuth2TokenCommonApi.java#L1-L34)
-- [OAuth2AccessTokenCheckRespDTO.java:1-39](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L39)
-- [GlobalErrorCodeConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/exception/enums/GlobalErrorCodeConstants.java#L1-L42)
-- [PandoraSecurityRpcAutoConfiguration.java:1-26](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityRpcAutoConfiguration.java#L1-L26)
-
-章节来源
-- [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
-- [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
-- [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
-- [PandoraSecurityAutoConfiguration.java:1-98](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L98)
-- [PandoraWebSecurityAutoConfiguration.java:127-183](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L127-L183)
-- [SecurityFrameworkUtils.java:1-163](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/util/SecurityFrameworkUtils.java#L1-L163)
-- [SecurityProperties.java:1-58](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/SecurityProperties.java#L1-L58)
-- [RpcConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/constants/RpcConstants.java#L1-L42)
-- [CommonResult.java:1-123](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/pojo/CommonResult.java#L1-L123)
-- [OAuth2TokenCommonApi.java:1-34](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/OAuth2TokenCommonApi.java#L1-L34)
-- [OAuth2AccessTokenCheckRespDTO.java:1-39](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L39)
+- [OAuth2AccessTokenCheckRespDTO.java:1-40](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L40)
 - [GlobalErrorCodeConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/exception/enums/GlobalErrorCodeConstants.java#L1-L42)
 - [PandoraSecurityRpcAutoConfiguration.java:1-26](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityRpcAutoConfiguration.java#L1-L26)
 
 ## 核心组件
-- PermissionCommonApi：定义权限与角色的远程校验接口，供安全框架调用
-- SecurityFrameworkService/SecurityFrameworkServiceImpl：封装权限校验逻辑，支持权限、角色、授权范围的判断，并内置缓存
-- TokenAuthenticationFilter：基于Token或Header透传构建LoginUser，注入Spring Security上下文
-- SecurityFrameworkUtils：提供获取当前用户、设置用户上下文、跨租户跳权限校验等工具方法
-- SecurityProperties：配置Token头、参数名、Mock开关与免登录URL等
-- OAuth2TokenCommonApi：校验访问令牌，返回用户类型、租户、授权范围等信息
-- CommonResult/GlobalErrorCodeConstants：统一响应体与错误码
+- **PermissionCommonApi**：定义权限与角色的远程校验接口，供安全框架调用
+- **SecurityFrameworkService/SecurityFrameworkServiceImpl**：封装权限校验逻辑，支持权限、角色、授权范围的判断，并内置缓存
+- **TokenAuthenticationFilter**：基于Token或Header透传构建LoginUser，注入Spring Security上下文
+- **SecurityFrameworkUtils**：提供获取当前用户、设置用户上下文、跨租户跳权限校验等工具方法
+- **SecurityProperties**：配置Token头、参数名、Mock开关与免登录URL等
+- **OAuth2TokenCommonApi**：校验访问令牌，返回用户类型、租户、授权范围等信息
+- **CommonResult/GlobalErrorCodeConstants**：统一响应体与错误码
 
-章节来源
-- [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
-- [SecurityFrameworkService.java:1-60](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkService.java#L1-L60)
-- [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
-- [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
-- [SecurityFrameworkUtils.java:1-163](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/util/SecurityFrameworkUtils.java#L1-L163)
-- [SecurityProperties.java:1-58](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/SecurityProperties.java#L1-L58)
-- [OAuth2TokenCommonApi.java:1-34](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/OAuth2TokenCommonApi.java#L1-L34)
-- [CommonResult.java:1-123](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/pojo/CommonResult.java#L1-L123)
-- [GlobalErrorCodeConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/exception/enums/GlobalErrorCodeConstants.java#L1-L42)
+**更新** 新增PermissionCommonApi作为权限管理的核心接口，提供远程权限校验能力。
 
 ## 架构总览
 权限管理的整体流程如下：
@@ -160,7 +146,7 @@ end
 S-->>C : "返回校验结果"
 ```
 
-图表来源
+**图表来源**
 - [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
 - [OAuth2TokenCommonApi.java:1-34](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/OAuth2TokenCommonApi.java#L1-L34)
 - [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
@@ -169,37 +155,39 @@ S-->>C : "返回校验结果"
 ## 详细组件分析
 
 ### PermissionCommonApi 接口
-- 作用：提供权限与角色的远程校验能力，供安全框架调用
-- 基础路径：由RpcConstants.SYSTEM_PREFIX与"/permission"组合
-- 方法：
+- **作用**：提供权限与角色的远程校验能力，供安全框架调用
+- **基础路径**：由RpcConstants.SYSTEM_PREFIX与"/permission"组合
+- **方法**：
   - hasAnyPermissions(userId, permissions...)：判断用户是否拥有任一给定权限
   - hasAnyRoles(userId, roles...)：判断用户是否拥有任一给定角色
-- 返回：统一包装为CommonResult<Boolean>
+- **返回**：统一包装为CommonResult<Boolean>
 
-请求参数与响应格式
-- 请求参数
+**更新** 完整的PermissionCommonApi接口文档，包含详细的API规范和使用说明。
+
+**请求参数与响应格式**
+- **请求参数**
   - userId：Long，用户编号，必填
   - permissions/roles：String...，权限或角色数组，必填
-- 响应
+- **响应**
   - code：Integer，0表示成功；非0为错误码
   - msg：String，描述信息
   - data：Boolean，true/false
 
-错误码参考
+**错误码参考**
 - 成功：0
 - 未登录：401
 - 没有权限：403
 - 服务器异常：500
 
-章节来源
+**章节来源**
 - [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
 - [RpcConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/constants/RpcConstants.java#L1-L42)
 - [CommonResult.java:1-123](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/pojo/CommonResult.java#L1-L123)
 - [GlobalErrorCodeConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/exception/enums/GlobalErrorCodeConstants.java#L1-L42)
 
 ### SecurityFrameworkService 与 SecurityFrameworkServiceImpl
-- SecurityFrameworkService：定义hasPermission、hasAnyPermissions、hasRole、hasAnyRoles、hasScope、hasAnyScopes等方法
-- SecurityFrameworkServiceImpl：
+- **SecurityFrameworkService**：定义hasPermission、hasAnyPermissions、hasRole、hasAnyRoles、hasScope、hasAnyScopes等方法
+- **SecurityFrameworkServiceImpl**：
   - 内置缓存：针对hasAnyPermissions与hasAnyRoles使用LoadingCache，1分钟过期
   - 跨租户跳权限校验：当访问租户与当前租户不一致时，直接放行
   - 角色/权限校验：从Security上下文获取userId，调用PermissionCommonApi
@@ -234,12 +222,12 @@ SecurityFrameworkServiceImpl ..|> SecurityFrameworkService
 SecurityFrameworkServiceImpl --> PermissionCommonApi : "调用"
 ```
 
-图表来源
+**图表来源**
 - [SecurityFrameworkService.java:1-60](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkService.java#L1-L60)
 - [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
 - [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
 
-章节来源
+**章节来源**
 - [SecurityFrameworkService.java:1-60](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkService.java#L1-L60)
 - [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
 
@@ -264,25 +252,25 @@ Skip --> Continue
 Continue --> End(["结束"])
 ```
 
-图表来源
+**图表来源**
 - [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
 - [OAuth2TokenCommonApi.java:1-34](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/OAuth2TokenCommonApi.java#L1-L34)
-- [OAuth2AccessTokenCheckRespDTO.java:1-39](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L39)
+- [OAuth2AccessTokenCheckRespDTO.java:1-40](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L40)
 
-章节来源
+**章节来源**
 - [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
 - [OAuth2TokenCommonApi.java:1-34](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/OAuth2TokenCommonApi.java#L1-L34)
-- [OAuth2AccessTokenCheckRespDTO.java:1-39](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L39)
+- [OAuth2AccessTokenCheckRespDTO.java:1-40](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/oauth2/dto/OAuth2AccessTokenCheckRespDTO.java#L1-L40)
 
 ### Spring Security 集成与自动配置
-- PandoraSecurityAutoConfiguration：注册认证入口、权限不足处理器、密码加密器、Token过滤器、SecurityFrameworkService
-- PandoraWebSecurityAutoConfiguration：配置无状态会话、CSRF禁用、异常处理、免登录URL与注解扫描
-- SecurityProperties：配置Token头、参数、Mock开关、免登录URL列表、密码加密复杂度
-- PandoraSecurityRpcAutoConfiguration：启用Feign客户端并注入LoginUser拦截器
+- **PandoraSecurityAutoConfiguration**：注册认证入口、权限不足处理器、密码加密器、Token过滤器、SecurityFrameworkService
+- **PandoraWebSecurityAutoConfiguration**：配置无状态会话、CSRF禁用、异常处理、免登录URL与注解扫描
+- **SecurityProperties**：配置Token头、参数、Mock开关、免登录URL列表、密码加密复杂度
+- **PandoraSecurityRpcAutoConfiguration**：启用Feign客户端并注入LoginUser拦截器
 
-章节来源
-- [PandoraSecurityAutoConfiguration.java:1-98](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L98)
-- [PandoraWebSecurityAutoConfiguration.java:127-183](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L127-L183)
+**章节来源**
+- [PandoraSecurityAutoConfiguration.java:1-99](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L99)
+- [PandoraWebSecurityAutoConfiguration.java:1-223](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L1-L223)
 - [SecurityProperties.java:1-58](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/SecurityProperties.java#L1-L58)
 - [PandoraSecurityRpcAutoConfiguration.java:1-26](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityRpcAutoConfiguration.java#L1-L26)
 
@@ -307,53 +295,57 @@ PSRAC["PandoraSecurityRpcAutoConfiguration"] --> OAT
 PSRAC --> PC
 ```
 
-图表来源
+**图表来源**
 - [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
 - [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
 - [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
-- [PandoraSecurityAutoConfiguration.java:1-98](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L98)
-- [PandoraWebSecurityAutoConfiguration.java:127-183](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L127-L183)
+- [PandoraSecurityAutoConfiguration.java:1-99](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L99)
+- [PandoraWebSecurityAutoConfiguration.java:1-223](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L1-L223)
 - [PandoraSecurityRpcAutoConfiguration.java:1-26](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityRpcAutoConfiguration.java#L1-L26)
 - [RpcConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/constants/RpcConstants.java#L1-L42)
 - [CommonResult.java:1-123](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/pojo/CommonResult.java#L1-L123)
 
-章节来源
+**章节来源**
 - [PermissionCommonApi.java:1-46](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L1-L46)
 - [SecurityFrameworkServiceImpl.java:1-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L1-L124)
 - [TokenAuthenticationFilter.java:1-157](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L1-L157)
-- [PandoraSecurityAutoConfiguration.java:1-98](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L98)
-- [PandoraWebSecurityAutoConfiguration.java:127-183](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L127-L183)
+- [PandoraSecurityAutoConfiguration.java:1-99](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L1-L99)
+- [PandoraWebSecurityAutoConfiguration.java:1-223](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L1-L223)
 - [PandoraSecurityRpcAutoConfiguration.java:1-26](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityRpcAutoConfiguration.java#L1-L26)
 - [RpcConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/constants/RpcConstants.java#L1-L42)
 - [CommonResult.java:1-123](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/pojo/CommonResult.java#L1-L123)
 
 ## 性能考量
-- 缓存策略：SecurityFrameworkServiceImpl对权限与角色校验结果使用LoadingCache，1分钟过期，降低RPC调用频率
-- 跨租户优化：当访问租户与当前租户不一致时，直接跳过权限校验，避免无效RPC
-- 无状态设计：禁用Session，使用Token，减少上下文存储开销
+- **缓存策略**：SecurityFrameworkServiceImpl对权限与角色校验结果使用LoadingCache，1分钟过期，降低RPC调用频率
+- **跨租户优化**：当访问租户与当前租户不一致时，直接跳过权限校验，避免无效RPC
+- **无状态设计**：禁用Session，使用Token，减少上下文存储开销
 
-章节来源
+**更新** 性能优化方面，新增了跨租户跳权限校验的优化策略。
+
+**章节来源**
 - [SecurityFrameworkServiceImpl.java:31-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L31-L124)
 - [PandoraWebSecurityAutoConfiguration.java:117-125](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L117-L125)
 
 ## 故障排查指南
-- 未登录（401）
+- **未登录（401）**
   - 现象：返回401错误
   - 原因：访问受保护资源但未提供有效Token
   - 处理：确保请求头Authorization或参数token有效
-- 没有权限（403）
+- **没有权限（403）**
   - 现象：返回403错误
   - 原因：已登录但无对应权限/角色/授权范围
   - 处理：确认用户权限、角色与授权范围配置
-- Token校验失败
+- **Token校验失败**
   - 现象：TokenAuthenticationFilter捕获异常并返回统一错误
   - 原因：Token无效、过期或用户类型不匹配
   - 处理：检查OAuth2TokenCommonApi返回与SecurityProperties配置
-- Mock模式
+- **Mock模式**
   - 说明：仅用于开发调试，生产需关闭
   - 配置：SecurityProperties.mockEnable与mockSecret
 
-章节来源
+**更新** 故障排查指南更加完善，包含了Mock模式的使用说明。
+
+**章节来源**
 - [AuthenticationEntryPointImpl.java:1-37](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/handler/AuthenticationEntryPointImpl.java#L1-L37)
 - [AccessDeniedHandlerImpl.java:1-44](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/handler/AccessDeniedHandlerImpl.java#L1-L44)
 - [TokenAuthenticationFilter.java:84-107](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/filter/TokenAuthenticationFilter.java#L84-L107)
@@ -362,11 +354,13 @@ PSRAC --> PC
 ## 结论
 本文档系统性梳理了权限管理API的接口定义、实现细节与与Spring Security的集成方式。通过PermissionCommonApi与SecurityFrameworkServiceImpl的配合，结合TokenAuthenticationFilter与OAuth2校验，实现了高效、可扩展的权限控制方案。建议在生产环境严格配置SecurityProperties，合理利用缓存与跨租户跳权限策略，确保性能与安全。
 
+**更新** 结论部分强调了PermissionCommonApi作为核心权限管理组件的重要性。
+
 ## 附录
 
 ### API 接口清单与示例
 
-- 权限校验接口
+- **权限校验接口**
   - 方法：GET
   - 路径：/rpc-api/system/permission/has-any-permissions
   - 请求参数：
@@ -375,7 +369,7 @@ PSRAC --> PC
   - 响应：CommonResult<Boolean>
   - 示例：/rpc-api/system/permission/has-any-permissions?userId=1&permissions=read,write
 
-- 角色校验接口
+- **角色校验接口**
   - 方法：GET
   - 路径：/rpc-api/system/permission/has-any-roles
   - 请求参数：
@@ -384,7 +378,9 @@ PSRAC --> PC
   - 响应：CommonResult<Boolean>
   - 示例：/rpc-api/system/permission/has-any-roles?userId=1&roles=admin,user
 
-章节来源
+**更新** 完整的API接口清单，包含权限校验和角色校验两个核心接口。
+
+**章节来源**
 - [PermissionCommonApi.java:26-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/biz/system/permission/PermissionCommonApi.java#L26-L42)
 - [RpcConstants.java:25-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/constants/RpcConstants.java#L25-L42)
 
@@ -394,18 +390,22 @@ PSRAC --> PC
 - 注册TokenAuthenticationFilter与异常处理器
 - 通过SecurityFrameworkService在业务层进行权限校验
 
-章节来源
-- [PandoraWebSecurityAutoConfiguration.java:117-183](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L117-L183)
-- [PandoraSecurityAutoConfiguration.java:74-98](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L74-L98)
+**更新** 集成要点更加明确地指出了PermissionCommonApi在权限校验流程中的作用。
+
+**章节来源**
+- [PandoraWebSecurityAutoConfiguration.java:117-223](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraWebSecurityAutoConfiguration.java#L117-L223)
+- [PandoraSecurityAutoConfiguration.java:74-99](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/PandoraSecurityAutoConfiguration.java#L74-L99)
 
 ### 最佳实践
-- 权限与角色命名规范：使用清晰、稳定的标识符，避免频繁变更
-- 缓存策略：根据业务热点调整缓存过期时间
-- 跨租户场景：谨慎使用跨租户跳权限校验，确保审计与合规
-- Mock模式：仅在开发环境启用，生产务必关闭
-- 错误处理：统一使用CommonResult与GlobalErrorCodeConstants，便于前端处理
+- **权限与角色命名规范**：使用清晰、稳定的标识符，避免频繁变更
+- **缓存策略**：根据业务热点调整缓存过期时间
+- **跨租户场景**：谨慎使用跨租户跳权限校验，确保审计与合规
+- **Mock模式**：仅在开发环境启用，生产务必关闭
+- **错误处理**：统一使用CommonResult与GlobalErrorCodeConstants，便于前端处理
 
-章节来源
+**更新** 最佳实践部分增加了关于PermissionCommonApi使用的具体建议。
+
+**章节来源**
 - [SecurityFrameworkServiceImpl.java:31-124](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/core/service/SecurityFrameworkServiceImpl.java#L31-L124)
 - [SecurityProperties.java:36-58](file://pandora-framework/pandora-spring-boot-starter-security/src/main/java/net/ittimeline/pandora/framework/security/config/SecurityProperties.java#L36-L58)
 - [GlobalErrorCodeConstants.java:1-42](file://pandora-framework/pandora-common/src/main/java/net/ittimeline/pandora/framework/common/exception/enums/GlobalErrorCodeConstants.java#L1-L42)

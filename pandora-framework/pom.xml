@@ -29,6 +29,7 @@
         <module>pandora-spring-boot-starter-rpc</module>
         <module>pandora-spring-boot-starter-web</module>
         <module>pandora-spring-boot-starter-security</module>
+        <module>pandora-spring-boot-starter-mybatis</module>
     </modules>
 
 

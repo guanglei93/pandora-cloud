@@ -23,6 +23,9 @@
         如果是业务组件，Maven 名字会包含 biz
     </description>
     <url>https://github.com/guanglei93/pandora-cloud</url>
+    <modules>
+        <module>pandora-common</module>
+    </modules>
 
 
     <properties>

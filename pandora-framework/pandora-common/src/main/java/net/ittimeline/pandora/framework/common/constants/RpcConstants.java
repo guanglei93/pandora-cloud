@@ -3,7 +3,7 @@ package net.ittimeline.pandora.framework.common.constants;
 /**
  * RPC 相关的常量
  * <p>
- * 虽然放在 yudao-spring-boot-starter-rpc 会相对合适，但是每个 API 模块需要使用到，所以暂时只好放在此处
+ * 虽然放在 pandora-spring-boot-starter-rpc 会相对合适，但是每个 API 模块需要使用到，所以暂时只好放在此处
  *
  * @author tony 18601767221@163.com
  * @version 2026/5/16 15:34

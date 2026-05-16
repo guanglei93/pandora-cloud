@@ -1,0 +1,8 @@
+net.ittimeline.pandora.framework.banner.config.PandoraBannerAutoConfiguration
+net.ittimeline.pandora.framework.jackson.config.PandoraJacksonAutoConfiguration
+net.ittimeline.pandora.framework.web.config.PandoraWebAutoConfiguration
+net.ittimeline.pandora.framework.apilog.config.PandoraApiLogAutoConfiguration
+net.ittimeline.pandora.framework.apilog.config.PandoraApiLogRpcAutoConfiguration
+net.ittimeline.pandora.framework.swagger.config.PandoraSwaggerAutoConfiguration
+net.ittimeline.pandora.framework.xss.config.PandoraXssAutoConfiguration
+net.ittimeline.pandora.framework.encrypt.config.PandoraApiEncryptAutoConfiguration

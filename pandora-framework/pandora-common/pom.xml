@@ -95,6 +95,14 @@
             <artifactId>easy-trans-anno</artifactId> <!-- 默认引入的原因，方便 xxx-module-api 包使用 -->
         </dependency>
 
+        <!-- RPC 远程调用相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+            <scope>provided</scope> <!-- 设置为 provided，主要是 api 包使用到 -->
+        </dependency>
+
+
     </dependencies>
 
 

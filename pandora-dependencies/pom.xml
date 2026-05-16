@@ -13,110 +13,100 @@
     <url>https://github.com/guanglei93/pandora-cloud</url>
 
     <properties>
-        <revision>2026.05-1.0.0-SNAPSHOT</revision>
-        <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+        <!-- ==================== 项目自身 ==================== -->
+        <revision>2026.05-1.0.0-SNAPSHOT</revision> <!-- 项目统一版本号 -->
+        <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version> <!-- CI-friendly 版本解析插件 -->
 
+        <!-- ==================== 微服务框架 ==================== -->
+        <spring.boot.version>3.5.14</spring.boot.version> <!-- Spring Boot -->
+        <spring.cloud.version>2025.0.1</spring.cloud.version> <!-- Spring Cloud -->
+        <spring.cloud.alibaba.version>2025.0.0.0</spring.cloud.alibaba.version> <!-- Spring Cloud Alibaba -->
 
-        <!-- 工具类相关 -->
-        <lombok.version>1.18.46</lombok.version>
-        <mapstruct.version>1.6.3</mapstruct.version>
-        <hutool.version>5.8.44</hutool.version>
-        <guava.version>33.6.0-jre</guava.version>
-        <commons-lang3.version>3.20.0</commons-lang3.version>
-        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
-        <fastjson.version>2.0.62</fastjson.version>
-        <fastexcel.version>1.3.0</fastexcel.version>
-        <anji-plus-captcha.version>1.4.0</anji-plus-captcha.version>
-        <jsoup.version>1.22.2</jsoup.version>
-        <velocity.version>2.4.1</velocity.version>
-        <jsch.version>2.28.2</jsch.version>
-        <tika-core.version>3.3.0</tika-core.version>
-        <ip2region.version>2.7.0</ip2region.version>
-        <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
-        <reflections.version>0.10.2</reflections.version>
-        <netty.version>4.2.13.Final</netty.version>
-        <mqtt.version>1.2.5</mqtt.version>
-        <vertx.version>5.0.12</vertx.version>
-        <okhttp.version>5.3.2</okhttp.version>
-        <californium.version>3.14.0</californium.version>
-        <j2mod.version>3.3.0</j2mod.version>
+        <!-- ==================== Web / API 文档 ==================== -->
+        <knife4j.version>4.5.0</knife4j.version> <!-- API 文档增强 UI -->
+        <springdoc.version>3.0.3</springdoc.version> <!-- OpenAPI 3 / Swagger 文档生成 -->
 
-        <!-- 三方云服务相关 -->
-        <!-- 云存储 -->
-        <aws-sdk.version>2.44.5</aws-sdk.version>
-        <!-- 社交登录 -->
-        <justauth.version>1.16.7</justauth.version>
-        <justauth-starter.version>1.4.0</justauth-starter.version>
-        <!-- 报表 -->
-        <jimureport.version>2.3.2</jimureport.version>
-        <jimubi.version>2.3.2</jimubi.version>
-        <!-- 微信 -->
-        <weixin-java.version>4.8.2-20260501.180637</weixin-java.version>
-        <!-- 支付宝 -->
-        <alipay-sdk-java.version>4.40.771.ALL</alipay-sdk-java.version>
+        <!-- ==================== 数据库 / ORM ==================== -->
+        <druid.version>1.2.28</druid.version> <!-- 阿里数据库连接池 -->
+        <mybatis.version>3.5.19</mybatis.version> <!-- MyBatis 持久层框架 -->
+        <mybatis-plus.version>3.5.16</mybatis-plus.version> <!-- MyBatis-Plus 增强 -->
+        <mybatis-plus-join.version>1.5.7</mybatis-plus-join.version> <!-- MyBatis-Plus 联表查询 -->
+        <dynamic-datasource.version>4.5.0</dynamic-datasource.version> <!-- 多数据源切换 -->
+        <easy-trans.version>3.0.6</easy-trans.version> <!-- 字典翻译 -->
+        <commons-net.version>3.13.0</commons-net.version> <!-- 网络工具库 -->
 
+        <!-- ==================== 缓存 ==================== -->
+        <redisson.version>4.4.0</redisson.version> <!-- Redis 客户端与分布式锁 -->
 
-        <!--  微服务框架  -->
-        <spring.boot.version>3.5.14</spring.boot.version>
-        <spring.cloud.version>2025.0.1</spring.cloud.version>
-        <spring.cloud.alibaba.version>2025.0.0.0</spring.cloud.alibaba.version>
+        <!-- ==================== 消息队列 ==================== -->
+        <rocketmq-spring.version>2.3.5</rocketmq-spring.version> <!-- RocketMQ Spring Starter -->
 
+        <!-- ==================== 定时任务 ==================== -->
+        <xxl-job.version>3.4.0</xxl-job.version> <!-- 分布式任务调度 -->
 
-        <!-- ORM / DB -->
-        <mybatis.version>3.5.19</mybatis.version>
-        <mybatis-plus.version>3.5.16</mybatis-plus.version>
-        <mybatis-plus-join.version>1.5.7</mybatis-plus-join.version>
-        <druid.version>1.2.28</druid.version>
-        <dynamic-datasource.version>4.5.0</dynamic-datasource.version>
-        <easy-trans.version>3.0.6</easy-trans.version>
-        <commons-net.version>3.13.0</commons-net.version>
+        <!-- ==================== 服务保障 ==================== -->
+        <lock4j.version>2.2.7</lock4j.version> <!-- 分布式锁组件 -->
 
+        <!-- ==================== 链路追踪 / 监控 ==================== -->
+        <skywalking.version>9.6.0</skywalking.version> <!-- APM 链路追踪探针 -->
+        <spring-boot-admin.version>3.5.14</spring-boot-admin.version> <!-- Spring Boot 监控管理 -->
+        <opentracing.version>0.33.0</opentracing.version> <!-- 链路追踪 API 标准 -->
 
-        <!-- 缓存 -->
-        <redisson.version>4.4.0</redisson.version>
+        <!-- ==================== 网络通信 ==================== -->
+        <netty.version>4.2.13.Final</netty.version> <!-- 高性能网络框架 -->
+        <okhttp.version>5.3.2</okhttp.version> <!-- HTTP 客户端 -->
+        <vertx.version>5.0.12</vertx.version> <!-- 异步网络应用框架 -->
+        <californium.version>3.14.0</californium.version> <!-- CoAP 协议实现 (物联网) -->
+        <mqtt.version>1.2.5</mqtt.version> <!-- MQTT 物联网消息协议客户端 -->
+        <jsch.version>2.28.2</jsch.version> <!-- SSH/SFTP 客户端 -->
 
-        <!-- 消息队列 -->
-        <rocketmq-spring.version>2.3.5</rocketmq-spring.version>
+        <!-- ==================== IoT / 工业协议 ==================== -->
+        <j2mod.version>3.3.0</j2mod.version> <!-- Modbus 工业通信协议 -->
 
-        <!-- 定时任务 -->
-        <xxl-job.version>3.4.0</xxl-job.version>
+        <!-- ==================== BPM 工作流 ==================== -->
+        <flowable.version>8.0.0</flowable.version> <!-- 流程引擎 -->
 
-        <!-- 分布式锁 -->
-        <lock4j.version>2.2.7</lock4j.version>
+        <!-- ==================== 基础工具 ==================== -->
+        <lombok.version>1.18.46</lombok.version> <!-- 编译期代码生成 -->
+        <mapstruct.version>1.6.3</mapstruct.version> <!-- 对象映射转换 -->
+        <hutool.version>5.8.44</hutool.version> <!-- Java 工具类库 -->
+        <guava.version>33.6.0-jre</guava.version> <!-- Google 工具类库 -->
+        <fastjson.version>2.0.62</fastjson.version> <!-- JSON 序列化 -->
+        <fastexcel.version>1.3.0</fastexcel.version> <!-- Excel 读写 -->
+        <commons-lang3.version>3.20.0</commons-lang3.version> <!-- Apache 字符串/对象工具 -->
+        <reflections.version>0.10.2</reflections.version> <!-- 运行时反射扫描 -->
 
-        <!-- 链路追踪 / 监控 -->
-        <skywalking.version>9.6.0</skywalking.version>
-        <spring-boot-admin.version>3.5.14</spring-boot-admin.version>
-        <opentracing.version>0.33.0</opentracing.version>
+        <!-- ==================== 模板 / 文档 ==================== -->
+        <velocity.version>2.4.1</velocity.version> <!-- 模板引擎 -->
+        <tika-core.version>3.3.0</tika-core.version> <!-- 文件类型检测与内容提取 -->
+        <jsoup.version>1.22.2</jsoup.version> <!-- HTML 解析 -->
 
+        <!-- ==================== 编码 / 安全 ==================== -->
+        <anji-plus-captcha.version>1.4.0</anji-plus-captcha.version> <!-- 验证码 -->
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version> <!-- 阿里线程上下文传递 -->
+        <ip2region.version>2.7.0</ip2region.version> <!-- IP 归属地查询 -->
+        <bizlog-sdk.version>3.0.6</bizlog-sdk.version> <!-- 业务日志 SDK -->
 
-        <!-- Web / API 文档 -->
-        <knife4j.version>4.5.0</knife4j.version>
-        <springdoc.version>3.0.3</springdoc.version>
+        <!-- ==================== 测试 ==================== -->
+        <podam.version>8.0.2.RELEASE</podam.version> <!-- 测试数据自动填充 -->
+        <jedis-mock.version>1.1.12</jedis-mock.version> <!-- Redis Mock -->
+        <mockito-inline.version>5.2.0</mockito-inline.version> <!-- Mock 框架 -->
 
-        <!-- 测试 -->
-        <podam.version>8.0.2.RELEASE</podam.version>
-        <jedis-mock.version>1.1.12</jedis-mock.version>
-        <mockito-inline.version>5.2.0</mockito-inline.version>
-
-        <!--   BPM 工作流相关 -->
-        <flowable.version>8.0.0</flowable.version>
-
-
+        <!-- ==================== 三方云服务 ==================== -->
+        <aws-sdk.version>2.44.5</aws-sdk.version> <!-- AWS 云存储 SDK -->
+        <justauth.version>1.16.7</justauth.version> <!-- 第三方社交登录 -->
+        <justauth-starter.version>1.4.0</justauth-starter.version> <!-- 社交登录 Spring Boot Starter -->
+        <jimureport.version>2.3.2</jimureport.version> <!-- 积木报表 -->
+        <jimubi.version>2.3.2</jimubi.version> <!-- 积木报表大屏 -->
+        <weixin-java.version>4.8.2-20260501.180637</weixin-java.version> <!-- 微信开发 SDK -->
+        <alipay-sdk-java.version>4.40.771.ALL</alipay-sdk-java.version> <!-- 支付宝 SDK -->
     </properties>
 
 
     <dependencyManagement>
 
         <dependencies>
-            <!-- 统一依赖管理 -->
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-bom</artifactId>
-                <version>${netty.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!-- ==================== 微服务框架 BOM（import 顺序很重要，先 Spring Boot，再 Cloud） ==================== -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -138,35 +128,25 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <!-- 业务组件 -->
             <dependency>
-                <groupId>io.github.mouzt</groupId>
-                <artifactId>bizlog-sdk</artifactId>
-                <version>${bizlog-sdk.version}</version>
-                <exclusions>
-                    <exclusion> <!-- 排除掉springboot依赖使用项目的 -->
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>${netty.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
-
-            <!-- Spring 核心 -->
+            <!-- ==================== Spring 核心 ==================== -->
             <dependency>
-                <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
+                <artifactId>spring-boot-configuration-processor</artifactId> <!-- 生成 @ConfigurationProperties 元数据 -->
                 <version>${spring.boot.version}</version>
             </dependency>
 
-
-            <!-- Web 相关 -->
-
+            <!-- ==================== Web / API 文档 ==================== -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId> <!-- API 文档增强 UI -->
                 <version>${knife4j.version}</version>
                 <exclusions>
                     <exclusion>
@@ -177,57 +157,54 @@
             </dependency>
             <dependency>
                 <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId> <!-- OpenAPI 3 文档 -->
                 <version>${springdoc.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.xiaoymin</groupId> <!-- 接口文档 UI：knife4j【网关专属】 -->
-                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId> <!-- 网关专属 API 文档聚合 -->
                 <version>${knife4j.version}</version>
             </dependency>
 
-            <!-- DB 相关 -->
-
+            <!-- ==================== 数据库 / ORM ==================== -->
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-3-starter</artifactId>
+                <artifactId>druid-spring-boot-3-starter</artifactId> <!-- 阿里数据库连接池 -->
                 <version>${druid.version}</version>
             </dependency>
             <dependency>
-                <!-- 注意：必须声明，避免 flowable 和 mybatis-plus 引入的 mybatis 版本不一致！！！ -->
                 <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
+                <artifactId>mybatis</artifactId> <!-- 必须声明，避免 flowable 和 mybatis-plus 引入的 mybatis 版本不一致 -->
                 <version>${mybatis.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId> <!-- MyBatis-Plus Starter -->
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-jsqlparser</artifactId>
+                <artifactId>mybatis-plus-jsqlparser</artifactId> <!-- SQL 解析 -->
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId> <!-- 代码生成器，使用它解析表结构 -->
+                <artifactId>mybatis-plus-generator</artifactId> <!-- 代码生成器，解析表结构 -->
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot3-starter</artifactId> <!-- 多数据源 -->
+                <artifactId>dynamic-datasource-spring-boot3-starter</artifactId> <!-- 多数据源切换 -->
                 <version>${dynamic-datasource.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.yulichang</groupId>
-                <artifactId>mybatis-plus-join-boot-starter</artifactId> <!-- MyBatis 联表查询 -->
+                <artifactId>mybatis-plus-join-boot-starter</artifactId> <!-- 联表查询 -->
                 <version>${mybatis-plus-join.version}</version>
             </dependency>
-
             <dependency>
-                <groupId>com.fhs-opensource</groupId> <!-- VO 数据翻译 -->
-                <artifactId>easy-trans-spring-boot-starter</artifactId>
+                <groupId>com.fhs-opensource</groupId>
+                <artifactId>easy-trans-spring-boot-starter</artifactId> <!-- VO 数据翻译 -->
                 <version>${easy-trans.version}</version>
                 <exclusions>
                     <exclusion>
@@ -242,49 +219,41 @@
             </dependency>
             <dependency>
                 <groupId>com.fhs-opensource</groupId>
-                <artifactId>easy-trans-mybatis-plus-extend</artifactId>
+                <artifactId>easy-trans-mybatis-plus-extend</artifactId> <!-- 翻译 - MyBatis-Plus 扩展 -->
                 <version>${easy-trans.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fhs-opensource</groupId>
-                <artifactId>easy-trans-anno</artifactId>
+                <artifactId>easy-trans-anno</artifactId> <!-- 翻译注解 -->
                 <version>${easy-trans.version}</version>
             </dependency>
 
-
+            <!-- ==================== 缓存 ==================== -->
             <dependency>
                 <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-boot-starter</artifactId>
+                <artifactId>redisson-spring-boot-starter</artifactId> <!-- Redis 客户端与分布式锁 -->
                 <version>${redisson.version}</version>
             </dependency>
 
+            <!-- ==================== 消息队列 ==================== -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId> <!-- RocketMQ Spring Starter -->
+                <version>${rocketmq-spring.version}</version>
+            </dependency>
 
-            <!-- RPC 远程调用相关 -->
-
-            <!-- Registry 注册中心相关 -->
-
-            <!-- Config 配置中心相关 -->
-
-            <!-- Job 定时任务相关 -->
+            <!-- ==================== 定时任务 ==================== -->
             <dependency>
                 <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-job-core</artifactId>
+                <artifactId>xxl-job-core</artifactId> <!-- 分布式任务调度 -->
                 <version>${xxl-job.version}</version>
                 <scope>compile</scope>
             </dependency>
 
-            <!-- 消息队列相关 -->
-
-            <dependency>
-                <groupId>org.apache.rocketmq</groupId>
-                <artifactId>rocketmq-spring-boot-starter</artifactId>
-                <version>${rocketmq-spring.version}</version>
-            </dependency>
-
-
+            <!-- ==================== 服务保障 ==================== -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
+                <artifactId>lock4j-redisson-spring-boot-starter</artifactId> <!-- 分布式锁组件 -->
                 <version>${lock4j.version}</version>
                 <exclusions>
                     <exclusion>
@@ -294,61 +263,212 @@
                 </exclusions>
             </dependency>
 
-
+            <!-- ==================== 链路追踪 / 监控 ==================== -->
             <dependency>
                 <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-trace</artifactId>
+                <artifactId>apm-toolkit-trace</artifactId> <!-- SkyWalking 链路追踪 -->
                 <version>${skywalking.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-logback-1.x</artifactId>
+                <artifactId>apm-toolkit-logback-1.x</artifactId> <!-- SkyWalking Logback 集成 -->
                 <version>${skywalking.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-opentracing</artifactId>
+                <artifactId>apm-toolkit-opentracing</artifactId> <!-- SkyWalking OpenTracing 桥接 -->
                 <version>${skywalking.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-api</artifactId>
+                <artifactId>opentracing-api</artifactId> <!-- OpenTracing API -->
                 <version>${opentracing.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-util</artifactId>
+                <artifactId>opentracing-util</artifactId> <!-- OpenTracing 工具类 -->
                 <version>${opentracing.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-noop</artifactId>
+                <artifactId>opentracing-noop</artifactId> <!-- OpenTracing 空实现 -->
                 <version>${opentracing.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
+                <artifactId>spring-boot-admin-starter-server</artifactId> <!-- Admin Server 服务端 -->
                 <version>${spring-boot-admin.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId> <!-- 实现 Spring Boot Admin Server 服务端 -->
+                <artifactId>spring-boot-admin-starter-client</artifactId> <!-- Admin Client 客户端 -->
                 <version>${spring-boot-admin.version}</version>
             </dependency>
 
-            <!-- Test 测试相关 -->
-
-
+            <!-- ==================== 网络通信 ==================== -->
             <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-inline</artifactId>
-                <version>${mockito-inline.version}</version> <!-- 支持 Mockito 的 final 类与 static 方法的 mock -->
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId> <!-- HTTP 客户端 -->
+                <version>${okhttp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>mockwebserver</artifactId> <!-- OkHttp 测试 Mock -->
+                <version>${okhttp.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId> <!-- Vert.x 核心 -->
+                <version>${vertx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web</artifactId> <!-- Vert.x Web -->
+                <version>${vertx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-mqtt</artifactId> <!-- Vert.x MQTT -->
+                <version>${vertx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.paho</groupId>
+                <artifactId>org.eclipse.paho.client.mqttv3</artifactId> <!-- MQTT 客户端 -->
+                <version>${mqtt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.californium</groupId>
+                <artifactId>californium-core</artifactId> <!-- CoAP 协议实现 -->
+                <version>${californium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId> <!-- FTP 连接 -->
+                <version>${commons-net.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.mwiede</groupId>
+                <artifactId>jsch</artifactId> <!-- SSH/SFTP 连接 -->
+                <version>${jsch.version}</version>
             </dependency>
 
+            <!-- ==================== IoT / 工业协议 ==================== -->
+            <dependency>
+                <groupId>com.ghgande</groupId>
+                <artifactId>j2mod</artifactId> <!-- Modbus 工业通信协议 -->
+                <version>${j2mod.version}</version>
+            </dependency>
+
+            <!-- ==================== BPM 工作流 ==================== -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-process</artifactId> <!-- 流程引擎 -->
+                <version>${flowable.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-actuator</artifactId> <!-- 流程监控 -->
+                <version>${flowable.version}</version>
+            </dependency>
+
+            <!-- ==================== 基础工具 ==================== -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId> <!-- 编译期代码生成 -->
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId> <!-- 对象映射转换 -->
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId> <!-- MapStruct 注解处理器 -->
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId> <!-- Java 工具类库 -->
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId> <!-- Google 工具类库 -->
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId> <!-- JSON 序列化 -->
+                <version>${fastjson.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.idev.excel</groupId>
+                <artifactId>fastexcel</artifactId> <!-- Excel 读写 -->
+                <version>${fastexcel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId> <!-- 字符串/对象工具，解决 CVE-2025-48924 -->
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId> <!-- 运行时反射扫描 -->
+                <version>${reflections.version}</version>
+            </dependency>
+
+            <!-- ==================== 模板 / 文档 ==================== -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId> <!-- 模板引擎 -->
+                <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId> <!-- 文件类型检测与内容提取 -->
+                <version>${tika-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId> <!-- HTML 解析 -->
+                <version>${jsoup.version}</version>
+            </dependency>
+
+            <!-- ==================== 编码 / 安全 ==================== -->
+            <dependency>
+                <groupId>com.anji-plus</groupId>
+                <artifactId>captcha-spring-boot-starter</artifactId> <!-- 验证码 -->
+                <version>${anji-plus-captcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId> <!-- 线程上下文传递 -->
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId> <!-- IP 归属地查询 -->
+                <version>${ip2region.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.mouzt</groupId>
+                <artifactId>bizlog-sdk</artifactId> <!-- 业务日志 SDK -->
+                <version>${bizlog-sdk.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- ==================== 测试 ==================== -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
+                <artifactId>spring-boot-starter-test</artifactId> <!-- Spring Boot 测试 Starter -->
                 <version>${spring.boot.version}</version>
                 <exclusions>
                     <exclusion>
@@ -361,217 +481,47 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
             <dependency>
-                <groupId>com.github.fppt</groupId> <!-- 单元测试，我们采用内嵌的 Redis 数据库 -->
-                <artifactId>jedis-mock</artifactId>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-inline</artifactId> <!-- 支持 final 类与 static 方法的 mock -->
+                <version>${mockito-inline.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.fppt</groupId>
+                <artifactId>jedis-mock</artifactId> <!-- 内嵌 Redis Mock -->
                 <version>${jedis-mock.version}</version>
             </dependency>
-
             <dependency>
-                <groupId>uk.co.jemos.podam</groupId> <!-- 单元测试，随机生成 POJO 类 -->
-                <artifactId>podam</artifactId>
+                <groupId>uk.co.jemos.podam</groupId>
+                <artifactId>podam</artifactId> <!-- 测试 POJO 随机数据生成 -->
                 <version>${podam.version}</version>
             </dependency>
 
-            <!-- 工作流相关 -->
-            <dependency>
-                <groupId>org.flowable</groupId>
-                <artifactId>flowable-spring-boot-starter-process</artifactId>
-                <version>${flowable.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.flowable</groupId>
-                <artifactId>flowable-spring-boot-starter-actuator</artifactId>
-                <version>${flowable.version}</version>
-            </dependency>
-
-            <!-- 工具类相关 -->
-
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>cn.idev.excel</groupId>
-                <artifactId>fastexcel</artifactId>
-                <version>${fastexcel.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.tika</groupId>
-                <artifactId>tika-core</artifactId> <!-- 文件类型的识别 -->
-                <version>${tika-core.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>${velocity.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.fastjson2</groupId>
-                <artifactId>fastjson2</artifactId>
-                <version>${fastjson.version}</version>
-                <scope>compile</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
-                <version>${transmittable-thread-local.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-net</groupId>
-                <artifactId>commons-net</artifactId> <!-- 解决 ftp 连接 -->
-                <version>${commons-net.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.mwiede</groupId>
-                <artifactId>jsch</artifactId> <!-- 解决 sftp 连接 -->
-                <version>${jsch.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version> <!-- 解决 CVE-2025-48924 漏洞 -->
-            </dependency>
-
-            <dependency>
-                <groupId>com.anji-plus</groupId>
-                <artifactId>captcha-spring-boot-starter</artifactId> <!-- 验证码，一般用于登录使用 -->
-                <version>${anji-plus-captcha.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.lionsoul</groupId>
-                <artifactId>ip2region</artifactId>
-                <version>${ip2region.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jsoup</groupId>
-                <artifactId>jsoup</artifactId>
-                <version>${jsoup.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.reflections</groupId>
-                <artifactId>reflections</artifactId>
-                <version>${reflections.version}</version>
-            </dependency>
-
-            <!-- Vert.x -->
-            <dependency>
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-core</artifactId>
-                <version>${vertx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-web</artifactId>
-                <version>${vertx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-mqtt</artifactId>
-                <version>${vertx.version}</version>
-            </dependency>
-
-            <!-- MQTT -->
-            <dependency>
-                <groupId>org.eclipse.paho</groupId>
-                <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-                <version>${mqtt.version}</version>
-            </dependency>
-
-            <!-- OkHttp -->
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>mockwebserver</artifactId>
-                <version>${okhttp.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <!-- CoAP - Eclipse Californium -->
-            <dependency>
-                <groupId>org.eclipse.californium</groupId>
-                <artifactId>californium-core</artifactId>
-                <version>${californium.version}</version>
-            </dependency>
-
-            <!-- Modbus 相关 -->
-            <dependency>
-                <groupId>com.ghgande</groupId>
-                <artifactId>j2mod</artifactId>
-                <version>${j2mod.version}</version>
-            </dependency>
-
-
-            <!-- 三方云服务相关 -->
+            <!-- ==================== 三方云服务 ==================== -->
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
-                <artifactId>s3</artifactId>
+                <artifactId>s3</artifactId> <!-- AWS S3 云存储 -->
                 <version>${aws-sdk.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.zhyd.oauth</groupId>
-                <artifactId>JustAuth</artifactId> <!-- 社交登陆（例如说，个人微信、企业微信等等） -->
+                <artifactId>JustAuth</artifactId> <!-- 第三方社交登录 -->
                 <version>${justauth.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.xkcoding.justauth</groupId>
-                <artifactId>justauth-spring-boot-starter</artifactId>
+                <artifactId>justauth-spring-boot-starter</artifactId> <!-- 社交登录 Starter -->
                 <version>${justauth-starter.version}</version>
                 <exclusions>
-                    <!-- 移除，避免和项目里的 hutool-all 冲突 -->
                     <exclusion>
                         <groupId>cn.hutool</groupId>
                         <artifactId>hutool-core</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
-
             <dependency>
                 <groupId>com.alipay.sdk</groupId>
-                <artifactId>alipay-sdk-java</artifactId>
+                <artifactId>alipay-sdk-java</artifactId> <!-- 支付宝 SDK -->
                 <version>${alipay-sdk-java.version}</version>
                 <exclusions>
                     <exclusion>
@@ -580,32 +530,29 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
             <dependency>
                 <groupId>com.github.binarywang</groupId>
-                <artifactId>weixin-java-pay</artifactId>
+                <artifactId>weixin-java-pay</artifactId> <!-- 微信支付 -->
                 <version>${weixin-java.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.binarywang</groupId>
-                <artifactId>wx-java-mp-spring-boot-starter</artifactId>
+                <artifactId>wx-java-mp-spring-boot-starter</artifactId> <!-- 微信公众号 -->
                 <version>${weixin-java.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.binarywang</groupId>
-                <artifactId>wx-java-miniapp-spring-boot-starter</artifactId>
+                <artifactId>wx-java-miniapp-spring-boot-starter</artifactId> <!-- 微信小程序 -->
                 <version>${weixin-java.version}</version>
             </dependency>
-
-            <!-- 积木报表-->
             <dependency>
                 <groupId>org.jeecgframework.jimureport</groupId>
-                <artifactId>jimureport-spring-boot3-starter</artifactId>
+                <artifactId>jimureport-spring-boot3-starter</artifactId> <!-- 积木报表 -->
                 <version>${jimureport.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jeecgframework.jimureport</groupId>
-                <artifactId>jimubi-spring-boot3-starter</artifactId>
+                <artifactId>jimubi-spring-boot3-starter</artifactId> <!-- 积木大屏 -->
                 <version>${jimubi.version}</version>
                 <exclusions>
                     <exclusion>
@@ -619,7 +566,6 @@
                 </exclusions>
             </dependency>
         </dependencies>
-
 
     </dependencyManagement>
 

@@ -1,0 +1,2 @@
+net.ittimeline.pandora.framework.redis.config.PandoraRedisAutoConfiguration
+net.ittimeline.pandora.framework.redis.config.PandoraCacheAutoConfiguration

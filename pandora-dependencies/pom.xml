@@ -106,6 +106,14 @@
     <dependencyManagement>
 
         <dependencies>
+            <!-- ==================== 项目内部模块 ==================== -->
+            <dependency>
+                <groupId>net.ittimeline</groupId>
+                <artifactId>pandora-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+
             <!-- ==================== 微服务框架 BOM（import 顺序很重要，先 Spring Boot，再 Cloud） ==================== -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
